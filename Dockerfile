@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
   && apt-get clean
 
 ENV GRPC_RELEASE_TAG v1.2.0
+RUN echo "git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /var/local/git/grpc"
 RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /var/local/git/grpc && \
 		cd /var/local/git/grpc && \
     git submodule update --init && \
