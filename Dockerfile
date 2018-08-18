@@ -1,5 +1,7 @@
 FROM haskell:8.4.3
 
+ENV DYLD_LIBRARY_PATH=/usr/local/lib
+
 RUN apt-get update && apt-get install -y \
   build-essential autoconf git pkg-config \
   automake libtool curl make g++ unzip \
@@ -17,4 +19,3 @@ RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /var/local/git
     cd /var/local/git/grpc && \
     make -j$(nproc) && make install && make clean && ldconfig
 
-#export DYLD_LIBRARY_PATH=/usr/local/lib''${DYLD_LIBRARY_PATH:+:}$DYLD_LIBRARY_PATH
