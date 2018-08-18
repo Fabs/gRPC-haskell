@@ -18,4 +18,3 @@ RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /var/local/git
     echo "--- installing grpc ---" && \
     cd /var/local/git/grpc && \
     make -j$(nproc) && make install && make clean && ldconfig
-
