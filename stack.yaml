@@ -64,3 +64,6 @@ nix:
   pure: false
   shell-file: release.nix
   nix-shell-options: ["-A", "grpc-haskell.env"]
+
+docker:
+  enable: true
